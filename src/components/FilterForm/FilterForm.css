@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  align-items: flex-end; /* Ensures items align at the bottom */
+  width: 100%;
+  max-width: 1500px; /* Maximum width for the form */
+  margin: 0 auto; /* Center the form */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 0.9rem; /* Smaller font size */
+}
+
+.form-control {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem; /* Smaller font size */
+}
+
+.form-control::placeholder {
+  color: #aaa;
+}
+
+.date-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 150px;
+}
+
+.calendar-icon {
+  font-size: 1.5rem;
+  color: #007bff;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.date-picker-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.date-picker {
+  display: none;
+}
+
+.date-display {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-left: 10px; /* Add some space between the calendar icon and the date display */
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn {
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 0.9rem; /* Smaller font size */
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Custom styles for react-datepicker */
+.react-datepicker {
+  font-family: 'Roboto', sans-serif;
+}
+
+.react-datepicker__header {
+  background-color: #009879; /* Green background similar to your color scheme */
+  color: white;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  color: rgb(0, 0, 0);
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #009879; /* Darker green for selected days */
+}
+
+.react-datepicker__day--today {
+  font-weight: bold;
+  color: #008000; /* Green for today's date */
+}
+
+.react-datepicker__day--outside-month {
+  color: #ccc;
+}
+
+.react-datepicker__month-dropdown-container,
+.react-datepicker__year-dropdown-container {
+  color: white;
+}
+
+.react-datepicker__month-read-view--down-arrow,
+.react-datepicker__year-read-view--down-arrow {
+  border-top-color: white;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .filter-form {
+    flex-direction: column; /* Stack form elements vertically on mobile */
+    align-items: stretch; /* Ensure full width */
+  }
+
+  .date-group {
+    flex-direction: row; /* Make date groups horizontal */
+    align-items: center; /* Center align items */
+  }
+
+  .date-group label {
+    margin-right: 10px; /* Add some space between label and input */
+  }
+
+  .btn-container {
+    justify-content: flex-start; /* Align button to the start */
+  }
+
+  .btn {
+    width: auto; /* Auto width for button */
+    margin-left: 10px; /* Add some space between date input and button */
+  }
+}

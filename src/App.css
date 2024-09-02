@@ -1,0 +1,162 @@
+/* App.css */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  background: #f4f4f9;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh; /* Ensure it covers the full height */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  background: #009879; /* Add a background color */
+  color: white; /* Change text color to white */
+  padding: 20px; /* Add some padding */
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+header h1 {
+  font-size: 2rem; /* Increase the font size */
+  margin: 0;
+  color: #fff; /* Ensure text color is white */
+  font-weight: 700; /* Make the font bold */
+  letter-spacing: 1px; /* Add some letter spacing */
+  text-transform: uppercase; /* Make the text uppercase */
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 1400px; /* Maximum width for the container */
+  margin: 0 auto; /* Center the container */
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-section {
+  width: 100%;
+  background: #f7f7f7;
+  padding: 5px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-form {
+  width: 100%; /* Ensures full width */
+}
+
+.content {
+  display: flex;
+  flex-direction: row; /* Ensure content is side by side on large screens */
+  width: 100%;
+  height: calc(100vh - 240px); /* Adjust height considering header and margins */
+  justify-content: space-between;
+  gap: 20px;
+  overflow: hidden; /* Prevent horizontal and vertical scroll */
+}
+
+.list {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow-y: auto; /* Allow vertical scroll only */
+  flex: 1; /* Ensure both take equal space */
+}
+
+.chart {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  flex: 1; /* Ensure chart takes more space */
+  overflow: hidden; /* Prevent scroll */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem; /* Smaller font size on mobile */
+  }
+
+  .content {
+    flex-direction: column; /* Stack content vertically on mobile */
+    height: auto; /* Let content determine height */
+  }
+
+  .list, .chart {
+    width: 100%; /* Full width on mobile */
+    margin-bottom: 1px; /* Add some space between sections */
+  }
+
+  .filter-form {
+    flex-direction: column; /* Stack filter form elements vertically */
+    align-items: stretch; /* Ensure full width */
+  }
+
+  .date-group {
+    flex-direction: row; /* Make date groups horizontal */
+    align-items: center; /* Center align items */
+  }
+
+  .date-group label {
+    margin-right: 10px; /* Add some space between label and input */
+  }
+
+  .btn-container {
+    justify-content: flex-start; /* Align button to the start */
+  }
+
+  .btn {
+    width: auto; /* Auto width for button */
+    margin-left: 10px; /* Add some space between date input and button */
+  }
+}
+
+ul.mensaje-uplink-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul.mensaje-uplink-list li {
+  margin: 10px 0;
+  padding: 10px;
+  background: #e7f5ff;
+  border: 1px solid #cce4ff;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul.mensaje-uplink-list li span {
+  display: block;
+}
+
+.mensaje-id {
+  font-weight: bold;
+}
+
+.mensaje-fecha {
+  color: #777;
+}
