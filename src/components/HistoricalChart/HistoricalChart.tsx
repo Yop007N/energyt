@@ -12,7 +12,8 @@ interface HistoricalChartProps {
 }
 
 const fetchMensajeUplinks = async (filters: { startDate: string; endDate: string; id_dispositivo: string }) => {
-  const { data } = await axios.get('/api/uplink-messages', { params: filters });
+  const baseUrl = import.meta.env.VITE_API_BASE_URL || '/api';
+  const { data } = await axios.get(`${baseUrl}/uplink-messages`, { params: filters });
   return data;
 };
 
