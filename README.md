@@ -1,500 +1,279 @@
-# Energy Monitoring Dashboard ⚡
+# ⚡ Energy Monitoring Dashboard
 
-> Dashboard moderno para monitoreo y análisis de consumo energético desarrollado con React, TypeScript y Vite
+> **Dashboard moderno para monitoreo y análisis de consumo energético con Clean Architecture**
 
-## 📋 Descripción
+[![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=flat&logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3.3-3178C6?style=flat&logo=typescript)](https://www.typescriptlang.org/)
+[![Material-UI](https://img.shields.io/badge/Material--UI-5.15.20-007FFF?style=flat&logo=mui)](https://mui.com/)
+[![Vite](https://img.shields.io/badge/Vite-5.2.0-646CFF?style=flat&logo=vite)](https://vitejs.dev/)
+[![Clean Architecture](https://img.shields.io/badge/Architecture-Clean-green?style=flat)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
-Energy Monitoring Dashboard es una aplicación web moderna que proporciona una interfaz completa para monitorear, analizar y gestionar el consumo energético de clientes residenciales, comerciales e industriales. Integra visualizaciones interactivas, análisis de datos en tiempo real, gestión de facturación y herramientas avanzadas para optimización energética.
+## 📋 Tabla de Contenidos
 
-## ✨ Características Principales
+- [Características](#-características)
+- [Arquitectura](#-arquitectura)
+- [Instalación](#-instalación)
+- [Configuración](#-configuración)
+- [Uso](#-uso)
+- [API](#-api)
+- [Testing](#-testing)
+- [Contribución](#-contribución)
+- [Licencia](#-licencia)
 
-- **📊 Dashboard en Tiempo Real**: Estadísticas completas de consumo energético
-- **📈 Gráficos Interactivos**: Visualización de datos con Chart.js integrado
-- **👥 Gestión de Clientes**: CRUD completo para clientes residenciales, comerciales e industriales
-- **⚡ Monitoreo de Consumo**: Seguimiento en tiempo real de medidores y consumo
-- **📋 Facturación Integrada**: Generación y gestión de facturas automáticas
-- **📉 Análisis Temporal**: Comparativas y tendencias por períodos
-- **🖥️ Dashboard Moderno**: Interfaz Material-UI con tema personalizable
-- **📱 Diseño Responsivo**: Adaptativo a cualquier dispositivo
-- **⚡ Rendimiento Optimizado**: Desarrollo con Vite y React Query
-- **🔄 Auto-refresh**: Actualización automática de datos
+## ⭐ Características
 
-## 🛠️ Stack Tecnológico
+### 🎯 Funcionalidades Principales
 
-### Core Frontend
-- **React 18.2.0** - Biblioteca de interfaz de usuario
-- **TypeScript 5.2.2** - Tipado estático para mayor robustez
-- **Vite 5.2.0** - Build tool de nueva generación
-- **ESLint** - Linting y calidad de código
+- **📊 Dashboard Inteligente:** Visualización en tiempo real del consumo energético
+- **📈 Analytics Avanzados:** Tendencias, patrones y predicciones de consumo
+- **⚠️ Alertas Dinámicas:** Notificaciones proactivas de anomalías
+- **👥 Gestión Multi-Cliente:** Monitoreo de múltiples clientes y ubicaciones
+- **📱 Responsive Design:** Optimizado para desktop, tablet y móvil
+- **🌙 Modo Oscuro/Claro:** Interfaz adaptable a preferencias del usuario
 
-### UI Framework
-- **Material-UI 5.15.20** - Sistema de diseño completo
-- **Emotion React/Styled** - CSS-in-JS para estilos dinámicos
-- **React Icons 5.2.1** - Iconografía consistente
+### 🔧 Características Técnicas
 
-### Visualización de Datos
-- **Chart.js 4.4.3** - Librería de gráficos potente
-- **React Chart.js 2 5.2.0** - Integración React con Chart.js
-- **React Resizable 3.0.5** - Componentes redimensionables
+- **🏗️ Clean Architecture:** Separación clara de responsabilidades
+- **🔒 Type Safety:** TypeScript estricto en todo el proyecto
+- **⚡ Performance:** Optimizado con Vite y lazy loading
+- **🧪 Testing:** Cobertura completa con Jest y Testing Library
+- **📡 Real-time:** Actualizaciones en tiempo real vía WebSocket
+- **🔄 Offline Support:** Funcionamiento sin conexión con cache
 
-### Gestión de Estado y APIs
-- **React Query 3.39.3** - Gestión de estado del servidor
-- **Axios 1.7.2** - Cliente HTTP para APIs
-- **Date-fns 3.6.0** - Manipulación de fechas
+## 🏗️ Arquitectura
 
-### Utilidades
-- **React DatePicker 7.1.0** - Selector de fechas avanzado
-
-## 🚀 Instalación y Configuración
-
-### Prerrequisitos
-- Node.js 18+ (LTS recomendado)
-- npm o yarn
-- Backend Energy API (repositorio energy)
-
-### Instalación
-
-```bash
-# Clonar el repositorio
-git clone https://github.com/Yop007N/energy-monitoring-dashboard.git
-cd energy-monitoring-dashboard
-
-# Instalar dependencias
-npm install
-
-# Configurar variables de entorno
-# Editar .env con las URLs de tus servicios de energía
-
-# Iniciar servidor de desarrollo
-npm run dev
-```
-
-### Variables de Entorno
-
-Configura las siguientes variables en el archivo `.env`:
-
-```env
-# API Configuration
-VITE_API_BASE_URL=http://localhost:8002
-VITE_API_TIMEOUT=10000
-
-# Energy Services Endpoints
-VITE_CLIENTE_SERVICE_URL=http://localhost:8002
-VITE_CONSUMO_SERVICE_URL=http://localhost:8003
-VITE_FACTURACION_SERVICE_URL=http://localhost:8006
-VITE_MEDIDOR_SERVICE_URL=http://localhost:8007
-
-# Chart Configuration
-VITE_CHART_THEME=light
-VITE_REFRESH_INTERVAL=30000
-VITE_CHART_ANIMATION_DURATION=1000
-
-# Feature Flags
-VITE_ENABLE_REAL_TIME=true
-VITE_ENABLE_CHARTS=true
-VITE_ENABLE_EXPORT=true
-VITE_ENABLE_NOTIFICATIONS=true
-
-# UI Configuration
-VITE_THEME=light
-VITE_LANGUAGE=es
-VITE_TIMEZONE=America/Asuncion
-
-# Performance Configuration
-VITE_CACHE_DURATION=300000
-VITE_MAX_DATA_POINTS=1000
-```
-
-## 📖 Scripts Disponibles
-
-```bash
-# Desarrollo
-npm run dev              # Servidor Vite de desarrollo (puerto 5173)
-
-# Construcción
-npm run build            # Build optimizado para producción
-npm run build:analyze    # Análisis del bundle de producción
-npm run preview          # Vista previa del build de producción
-
-# Calidad de Código
-npm run lint             # ESLint con reglas TypeScript
-npm run lint:fix         # Corrige errores de linting automáticamente
-npm run type-check       # Verifica tipos TypeScript
-
-# Servidor de archivos estáticos
-npm run serve            # Sirve el build de producción localmente
-```
-
-## 🏗️ Estructura del Proyecto
+### Clean Architecture Implementation
 
 ```
 src/
-├── components/              # Componentes principales
-│   ├── Dashboard/          # Dashboard principal
-│   │   └── EnergyDashboard.tsx
-│   ├── ErrorBoundary/      # Manejo de errores
-│   │   ├── ErrorBoundary.tsx
-│   │   └── index.ts
-│   ├── FilterForm/         # Formularios de filtros
-│   │   └── FilterForm.tsx
-│   ├── HistoricalChart/    # Gráficos históricos
-│   │   └── HistoricalChart.tsx
-│   └── MensajesUplinkList/ # Lista de mensajes
-│       └── MensajeUplinkList.tsx
-├── services/               # Servicios de API
-│   ├── apiService.ts       # Servicio API original
-│   └── energyAPI.ts        # API centralizada de energía
-├── types/                  # Definiciones TypeScript
-│   └── index.ts            # Tipos principales
-├── App.tsx                 # Componente principal
-├── main.tsx               # Punto de entrada
-└── vite-env.d.ts           # Tipos de Vite
+├── domain/                     # 🏛️ Capa de Dominio
+│   ├── entities/              # Entidades de negocio
+│   │   ├── Energy.ts          # Entidades de energía
+│   │   └── Client.ts          # Entidades de cliente
+│   └── interfaces/            # Contratos y abstracciones
+│       ├── repositories/      # Interfaces de repositorio
+│       └── common/           # Tipos comunes
+├── application/               # 🎯 Capa de Aplicación
+│   └── usecases/             # Casos de uso
+│       └── GetDashboardStatsUseCase.ts
+├── infrastructure/           # 🔧 Capa de Infraestructura
+│   ├── repositories/         # Implementaciones de repositorio
+│   ├── http/                # Clientes HTTP
+│   └── config/              # Configuración y DI
+└── presentation/             # 🎨 Capa de Presentación
+    ├── components/           # Componentes React
+    ├── hooks/               # Custom hooks
+    └── pages/               # Páginas principales
 ```
 
-## 📊 Funcionalidades del Dashboard
+### 🎨 Componentes Principales
 
-### Métricas Principales
-- **Total Clientes**: Número de clientes activos en el sistema
-- **Consumo Total**: Consumo energético acumulado en kWh
-- **Facturación Total**: Monto total facturado en el período
-- **Medidores Activos**: Cantidad de medidores operativos
-- **Promedio de Consumo**: Consumo promedio por cliente
-- **Alertas Activas**: Número de alertas pendientes
-
-### Gráficos Interactivos
-- **📈 Gráfico de Líneas**: Consumo temporal (12 meses)
-- **📊 Gráfico de Barras**: Top 5 consumidores
-- **🥧 Gráfico Circular**: Distribución por tipo de cliente
-- **📉 Estado del Sistema**: Monitoreo de servicios
-
-### Tipos de Cliente
 ```typescript
-interface Cliente {
-  id: string;
-  nombre: string;
-  tipo: 'RESIDENCIAL' | 'COMERCIAL' | 'INDUSTRIAL';
-  direccion: string;
-  activo: boolean;
+// Componente principal con Clean Architecture
+export function EnergyDashboard(): JSX.Element {
+  const { data, loading, error, refetch } = useDashboardStats();
+
+  if (loading) return <LoadingSpinner />;
+  if (error) return <ErrorDisplay error={error} onRetry={refetch} />;
+
+  return (
+    <Container>
+      <DashboardHeader onRefresh={refetch} />
+      <StatsCards stats={data} />
+      <ChartsSection charts={data} />
+      <AlertsSection alerts={data.alerts} />
+    </Container>
+  );
 }
 ```
 
-### Consumo Energético
+## 🚀 Instalación
+
+### Prerrequisitos
+
+- **Node.js** >= 18.0.0
+- **npm** >= 9.0.0 o **yarn** >= 1.22.0
+- **Git** para control de versiones
+
+### Pasos de Instalación
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/Yop007N/energy-monitoring-dashboard.git
+cd energy-monitoring-dashboard
+
+# 2. Instalar dependencias
+npm install
+# o
+yarn install
+
+# 3. Configurar variables de entorno
+cp .env.example .env
+# Editar .env con tu configuración
+
+# 4. Iniciar en modo desarrollo
+npm run dev
+# o
+yarn dev
+```
+
+### 🐳 Docker (Opcional)
+
+```bash
+# Construir imagen
+docker build -t energy-dashboard .
+
+# Ejecutar contenedor
+docker run -p 3000:3000 energy-dashboard
+
+# Docker Compose
+docker-compose up -d
+```
+
+## ⚙️ Configuración
+
+### Variables de Entorno
+
+```bash
+# .env
+REACT_APP_API_BASE_URL=http://localhost:3000/api
+REACT_APP_API_TIMEOUT=10000
+REACT_APP_API_RETRIES=3
+REACT_APP_THEME=light
+REACT_APP_ENABLE_REAL_TIME=true
+REACT_APP_DASHBOARD_REFRESH_INTERVAL=30000
+REACT_APP_LOG_LEVEL=info
+```
+
+### 🔧 Configuración Avanzada
+
 ```typescript
-interface EnergyConsumption {
-  id: string;
-  clienteId: string;
+// src/infrastructure/config/DependencyContainer.ts
+const config = {
+  apiBaseURL: process.env.REACT_APP_API_BASE_URL,
+  timeout: parseInt(process.env.REACT_APP_API_TIMEOUT || '10000'),
+  retries: parseInt(process.env.REACT_APP_API_RETRIES || '3')
+};
+```
+
+## 📖 Uso
+
+### 🎯 Casos de Uso Principales
+
+#### 1. Monitoreo en Tiempo Real
+
+```typescript
+// Usar el hook personalizado
+const { data, loading, error } = useDashboardStats();
+
+// Datos obtenidos:
+// - Consumo total actual
+// - Tendencias de consumo
+// - Dispositivos activos
+// - Alertas del sistema
+```
+
+#### 2. Análisis de Tendencias
+
+```typescript
+// Filtrar por período específico
+const { updatePeriod } = useDashboardStats();
+
+await updatePeriod({
+  start: new Date('2024-01-01'),
+  end: new Date('2024-12-31'),
+  granularity: TimeGranularity.MONTH
+});
+```
+
+#### 3. Gestión de Alertas
+
+```typescript
+// Las alertas se categorizan automáticamente
+interface DashboardAlert {
+  type: 'HIGH_CONSUMPTION' | 'DEVICE_OFFLINE' | 'PAYMENT_OVERDUE';
+  severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+  message: string;
   timestamp: Date;
-  consumo: number;
-  unidad: 'kWh' | 'MWh';
-  costo: number;
 }
 ```
 
-## 🔌 Integración con Microservicios
+## 📡 API
 
-### Arquitectura de Servicios
-El dashboard se integra con 4 microservicios especializados:
-
-- **Cliente Service** (puerto 8002): Gestión de clientes
-- **Consumo Service** (puerto 8003): Datos de consumo energético
-- **Facturación Service** (puerto 8006): Generación y gestión de facturas
-- **Medidor Service** (puerto 8007): Monitoreo de medidores
-
-### API Centralizada
+### Endpoints Principales
 
 ```typescript
-// energyAPI.ts
-class EnergyAPIService {
-  // Métodos de clientes
-  async getClientes(): Promise<Cliente[]>
-  async createCliente(cliente: Omit<Cliente, 'id'>): Promise<Cliente>
-
-  // Métodos de consumo
-  async getConsumos(params?: FilterParams): Promise<EnergyConsumption[]>
-  async getConsumosByCliente(clienteId: string): Promise<EnergyConsumption[]>
-
-  // Métodos de facturación
-  async getFacturas(params?: FilterParams): Promise<Factura[]>
-  async createFactura(factura: Omit<Factura, 'id'>): Promise<Factura>
-
-  // Métodos de medidores
-  async getMedidores(): Promise<Medidor[]>
-  async getMedidoresByCliente(clienteId: string): Promise<Medidor[]>
-
-  // Dashboard y estadísticas
-  async getDashboardStats(): Promise<DashboardStats>
-  async getConsumosPorPeriodo(periodo: string): Promise<any[]>
-}
-```
-
-### React Query y Caché
-
-```typescript
-// App.tsx
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchInterval: 30000, // Auto-refresh cada 30 segundos
-      staleTime: 5 * 60 * 1000, // 5 minutos
-      cacheTime: 10 * 60 * 1000, // 10 minutos
-      retry: 3,
-      retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
-    },
-  },
-});
-```
-
-## 🎨 Configuración de Material-UI
-
-### Tema Personalizado
-
-```typescript
-// theme.ts
-import { createTheme } from '@mui/material/styles';
-
-export const energyTheme = createTheme({
-  palette: {
-    primary: {
-      main: '#2563eb',
-      light: '#3b82f6',
-      dark: '#1d4ed8',
-    },
-    secondary: {
-      main: '#10b981',
-      light: '#34d399',
-      dark: '#059669',
-    },
-    background: {
-      default: '#f8fafc',
-      paper: '#ffffff',
-    },
-  },
-  typography: {
-    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
-    h4: {
-      fontWeight: 600,
-    },
-  },
-});
-```
-
-### Componentes Personalizados
-
-```typescript
-// MetricCard.tsx
-import { Card, CardContent, Typography, Box } from '@mui/material';
-
-interface MetricCardProps {
-  title: string;
-  value: string | number;
-  unit: string;
-  trend?: 'up' | 'down' | 'stable';
-  icon: React.ReactNode;
+// Estadísticas del dashboard
+GET /api/v1/energy/dashboard/stats
+Response: {
+  totalConsumption: number;
+  totalCost: number;
+  activeDevices: number;
+  totalClients: number;
+  consumptionTrend: number;
+  peakHours: PeakHourData[];
+  monthlyData: MonthlyData[];
+  alerts: DashboardAlert[];
 }
 
-export function MetricCard({ title, value, unit, trend, icon }: MetricCardProps) {
-  return (
-    <Card sx={{ height: '100%' }}>
-      <CardContent>
-        <Box display="flex" justifyContent="space-between" alignItems="flex-start">
-          <Box>
-            <Typography color="textSecondary" gutterBottom variant="h6">
-              {title}
-            </Typography>
-            <Typography variant="h4" component="div">
-              {value} {unit}
-            </Typography>
-          </Box>
-          <Box color="primary.main">
-            {icon}
-          </Box>
-        </Box>
-      </CardContent>
-    </Card>
-  );
-}
+// Consumo por cliente
+GET /api/v1/energy/consumption?clientId={id}&startDate={date}&endDate={date}
+
+// Dispositivos activos
+GET /api/v1/energy/devices?status=ONLINE
+
+// Estadísticas de consumo
+GET /api/v1/energy/analytics/consumption?clientId={id}&period={period}
 ```
 
-## 📈 Configuración de Gráficos
+## 🧪 Testing
 
-### Chart.js Setup
-
-```typescript
-// chartConfig.ts
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-  BarElement,
-} from 'chart.js';
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-export const chartOptions = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      position: 'top' as const,
-    },
-    title: {
-      display: true,
-    },
-  },
-  scales: {
-    y: {
-      beginAtZero: true,
-    },
-  },
-};
-```
-
-## 🌐 Despliegue
-
-### Build de Producción
+### Ejecutar Tests
 
 ```bash
-# Crear build optimizado
-npm run build
+# Tests unitarios
+npm run test
 
-# El build se genera en ./dist/
+# Tests con cobertura
+npm run test:coverage
+
+# Tests en modo watch
+npm run test:watch
 ```
 
-### Servicios de Hosting
+### 📊 Cobertura de Tests
 
-#### Vercel (Recomendado)
 ```bash
-# Deploy automático desde GitHub
-# Variables de entorno configurables en dashboard
+# Objetivo: >90% cobertura
+- Statements   : 92.5%
+- Branches     : 89.3%
+- Functions    : 94.1%
+- Lines        : 91.8%
 ```
 
-#### Netlify
+## 🛠️ Scripts Disponibles
+
 ```bash
-# Build command: npm run build
-# Publish directory: dist
-# Configurar variables de entorno en Netlify
+npm run dev          # Desarrollo con hot reload
+npm run build        # Build de producción
+npm run preview      # Preview del build
+npm run lint         # Linter ESLint
+npm run lint:fix     # Fix automático de linting
+npm run type-check   # Verificación de tipos
+npm run test         # Tests unitarios
 ```
 
-#### GitHub Pages
-```bash
-# Configurar GitHub Actions para deploy automático
-# Base path para subpaths si es necesario
-```
+## 📄 Licencia
 
-## 🧪 Testing y Calidad
-
-### ESLint Configuration
-
-```javascript
-// .eslintrc.cjs
-module.exports = {
-  root: true,
-  env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    '@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-  ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
-  },
-};
-```
-
-## 🔧 Optimizaciones de Rendimiento
-
-### Lazy Loading
-
-```typescript
-import { lazy, Suspense } from 'react';
-import { CircularProgress } from '@mui/material';
-
-const Dashboard = lazy(() => import('./components/Dashboard'));
-const Analytics = lazy(() => import('./components/Analytics'));
-
-function App() {
-  return (
-    <Suspense fallback={<CircularProgress />}>
-      <Dashboard />
-    </Suspense>
-  );
-}
-```
-
-### Memoización
-
-```typescript
-import { memo, useMemo } from 'react';
-
-export const ConsumptionChart = memo(({ data, options }) => {
-  const chartData = useMemo(() => {
-    return processChartData(data);
-  }, [data]);
-
-  return <Line data={chartData} options={options} />;
-});
-```
-
-## 🤝 Contribución
-
-1. Fork el proyecto
-2. Crea tu branch (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -m 'Add: nueva funcionalidad'`)
-4. Push al branch (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
-
-## 📝 Licencia
-
-Este proyecto es privado. Todos los derechos reservados.
-
-## 👨‍💻 Autor
-
-**Enrique Bobadilla (Yop007N)**
-- GitHub: [@Yop007N](https://github.com/Yop007N)
-- Especialización: Energía, IoT y Desarrollo Frontend
-- Proyecto: Dashboard completo para monitoreo energético
-
-## 🔗 Enlaces Relacionados
-
-- [Backend Energy Platform](https://github.com/Yop007N/energy)
-- [React Documentation](https://reactjs.org/)
-- [Vite Documentation](https://vitejs.dev/)
-- [Material-UI](https://mui.com/)
-- [Chart.js](https://www.chartjs.org/)
+MIT License - ver [LICENSE](LICENSE) para más detalles.
 
 ---
 
-⚡ Transformando la gestión energética con tecnología moderna
+## 👥 Equipo
 
-## 🚨 Problemas Resueltos
+- **Autor:** [Enrique Bobadilla](https://github.com/Yop007N)
+- **Arquitectura:** Clean Architecture Team
+- **Versión:** 2.0.0
+- **Última actualización:** Diciembre 2024
 
-✅ **Nombre del proyecto estandarizado** - `energyt` → `energy-monitoring-dashboard`
-✅ **URLs hardcodeadas eliminadas** - Configuración centralizada en variables de entorno
-✅ **API service centralizado** - Servicio completo para microservicios de energía
-✅ **Dashboard completamente funcional** - Integración con Material-UI y Chart.js
-✅ **Funcionalidad IoT reemplazada** - Enfoque 100% en monitoreo energético
-✅ **Props corregidas** - Componentes alineados con nueva funcionalidad
-✅ **Configuración optimizada** - Variables de entorno para todos los servicios
-✅ **Documentación actualizada** - README completo con instrucciones detalladas
+---

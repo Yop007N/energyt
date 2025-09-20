@@ -1,24 +1,11 @@
 import React from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline, Box } from '@mui/material';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import EnergyDashboard from './components/Dashboard/EnergyDashboard';
+import { EnergyDashboard } from './presentation/components/Dashboard/EnergyDashboard';
 import './App.css';
 
-// PROBLEMA ARREGLADO: Se reemplazó la funcionalidad IoT por dashboard energético completo
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchInterval: parseInt(import.meta.env.VITE_REFRESH_INTERVAL) || 30000,
-      staleTime: 5 * 60 * 1000, // 5 minutos
-      cacheTime: 10 * 60 * 1000, // 10 minutos
-      retry: 3,
-      retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
-    },
-  },
-});
-
+// Clean Architecture implementation with Material-UI theme
 const energyTheme = createTheme({
   palette: {
     mode: import.meta.env.VITE_THEME === 'dark' ? 'dark' : 'light',
@@ -75,16 +62,14 @@ const energyTheme = createTheme({
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={energyTheme}>
-        <CssBaseline />
-        <ErrorBoundary>
-          <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
-            <EnergyDashboard />
-          </Box>
-        </ErrorBoundary>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <ThemeProvider theme={energyTheme}>
+      <CssBaseline />
+      <ErrorBoundary>
+        <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+          <EnergyDashboard />
+        </Box>
+      </ErrorBoundary>
+    </ThemeProvider>
   );
 }
 
